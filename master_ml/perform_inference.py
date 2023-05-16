@@ -3,7 +3,7 @@ import joblib
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 # read test data and perform inference
-data=pd.read_csv('/content/drive/MyDrive/master_ml/test.csv')
+data=pd.read_csv('test.csv')
 #data = data.sample(frac=1, random_state=42)
 # drop Body_Level column if exists
 if 'Body_Level' in data.columns:
@@ -11,9 +11,9 @@ if 'Body_Level' in data.columns:
     data=data.drop('Body_Level',axis=1)
 
 # perform inference
-loaded_model = joblib.load('/content/drive/MyDrive/master_ml/lgbm_model.pkl')
+loaded_model = joblib.load('lgbm_model.pkl')
 # load encoder
-le = joblib.load('/content/drive/MyDrive/master_ml/label_encoder.joblib')
+le = joblib.load('label_encoder.joblib')
 
 # convert Body Level to numeric values
 data['Gender'] = pd.factorize(data['Gender'])[0]
